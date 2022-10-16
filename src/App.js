@@ -1,36 +1,49 @@
-import './App.css';
-import EducationalExperience from './Components/EducationalExperience';
-import GeneralInformation from './Components/GeneralInformation';
-import Header from './Components/Header';
-import WorkExperience from './Components/WorkExperience';
-import generalInformationObject from './Components/VariousObjects';
-import { useState } from 'react';
+import React from "react";
 
+import "./App.css";
+import Header from "./Components/Header";
+import { useState } from "react";
+
+// Forms
+import { GeneralInformation } from "./Forms/GeneralInformation";
+import { EducationalExperience } from "./Forms/EducationalExperience";
+
+const education_config = (name) => ({
+  name,
+  form: <EducationalExperience />,
+  values: {},
+});
 
 function App() {
+  const [educations, setEducations] = useState([education_config("1")]);
 
-  const [generalInformation, setGeneralInformation] = useState([]);
-  
-  if(generalInformation.length === 0)
-  {
-    setGeneralInformation(generalInformationObject);
-   console.log("baba");
-  }
+  console.log(educations);
 
+  const handleAddEducation = () => {
+    setEducations((prev) => [...prev, education_config(Math.random())]);
+  };
 
-
-
-
-
+  const handleDelete = (index) => {
+    console.log(index);
+    console.log(educations.filter((p, i) => i !== index));
+    setEducations((prev) => prev.filter((p, i) => i !== index));
+  };
 
   return (
     <div className="App">
+      <Header />
+      <GeneralInformation />
 
-      <Header/>
-      <GeneralInformation/>
-      <EducationalExperience/>
-      <WorkExperience/>
+      {educations.map(({ form, name }, index) => (
+        <div key={index}>
+          {name}
+          {React.cloneElement(form, {
+            handleDelete: () => handleDelete(index),
+          })}
+        </div>
+      ))}
 
+      <button onClick={handleAddEducation}>Add</button>
     </div>
   );
 }
