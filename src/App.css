@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
 }
 
 .App-logo {
@@ -35,4 +39,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.inputLabel{
+  display: block;  
+  text-align: left;;
+}
+
+.inputField{
+  display: block;
+  width: 100%;
+}
+.inputDiv{
+ width: 100%;
+
+}
+.GeneralInformation{
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.GeneralInformationContent{
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+p{
+  margin: 0;
+  padding: 0.1rem;
 }

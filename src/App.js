@@ -1,27 +1,12 @@
 import './App.css';
-import EducationalExperience from './Components/EducationalExperience';
-import GeneralInformation from './Components/GeneralInformation';
-import Header from './Components/Header';
-import WorkExperience from './Components/WorkExperience';
-import generalInformationObject from './Components/VariousObjects';
+import EducationalExperience from './Pages/EducationalExperience';
+import GeneralInformation from './Pages/GeneralInformation';
+import Header from './Pages/Header';
+import WorkExperience from './Pages/WorkExperience';
 import { useState } from 'react';
 
 
 function App() {
-
-  const [generalInformation, setGeneralInformation] = useState([]);
-  
-  if(generalInformation.length === 0)
-  {
-    setGeneralInformation(generalInformationObject);
-   console.log("baba");
-  }
-
-
-
-
-
-
 
   return (
     <div className="App">
