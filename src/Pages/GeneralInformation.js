@@ -12,6 +12,7 @@ function GeneralInformation (props){
           ...formData,
           [e.target.name]: e.target.value.trim()
         });
+
       };
 
       const handleSubmit = (e) => {
@@ -39,15 +40,15 @@ function GeneralInformation (props){
                         </div>
                         )
                     })}                    
-                    <Button text="Edit" handleClick={handleEdit}/>                    
+                    <Button text="Edit" onClick={handleEdit}/>                    
                 </div>
               ) : (
                 <form className="GeneralInformationContent" onSubmit={handleSubmit}> 
-                <InputField inputValue = {formData["First Name"]} inputType="text" fieldName="First Name" name = "First Name" onChange={handleChange}/>
-                <InputField inputValue = {formData["Last Name"]} inputType="text" fieldName="Last Name" name = "Last Name" onChange={handleChange}/>
-                <InputField inputValue = {formData["Email"]} inputType="" fieldName="Email" name ="Email" placeholder = "email@mail.com" onChange={handleChange}/>
-                <InputField inputValue = {formData["Phone Number"]} inputType="" fieldName="Phone Number" name = "Phone Number" placeholder = "123-456-7890" onChange={handleChange}/>
-                <Button text = "Save" buttonType = "submit"/>
+                <InputField value = {formData["First Name"] || ""} type="text" name = "First Name" onChange={handleChange}/>
+                <InputField value = {formData["Last Name"] || ""} type="text" name = "Last Name" onChange={handleChange}/>
+                <InputField value = {formData["Email"] || ""} type="" name ="Email" placeholder = "email@mail.com" onChange={handleChange}/>
+                <InputField value = {formData["Phone Number"] || ""} type="" name = "Phone Number" placeholder = "123-456-7890" onChange={handleChange}/>
+                <Button text = "Save" type = "submit"/>
                 </form>           
                 )}  
             

@@ -1,5 +1,5 @@
-export const Button = (props) => {
+export const Button = ({text, ...props}) => {
     return(
-        <button onClick={props.handleClick} type={props.buttonType}>{props.text}</button>
+        <button {...props}>{text}</button>
     )
 }
